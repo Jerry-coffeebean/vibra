@@ -5,20 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vibra – Personal Wellness & Mood Companion</title>
     
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
-    <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- External CSS -->
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-    <!-- ============================================
-         LOGIN SCREEN
-    ============================================ -->
     <div id="loginScreen">
         <div class="login-card card">
             <div class="logo">🌈</div>
@@ -36,11 +30,7 @@
         </div>
     </div>
 
-    <!-- ============================================
-         MAIN APP (Hidden initially)
-    ============================================ -->
     <div id="mainApp" class="hidden">
-        <!-- Navigation -->
         <nav>
             <div class="nav-content">
                 <div class="nav-logo">🌈 Vibra</div>
@@ -54,14 +44,10 @@
             </div>
         </nav>
 
-        <!-- ============================================
-             DASHBOARD SCREEN
-        ============================================ -->
         <div id="dashboardScreen" class="screen container">
             <h2 style="margin: 30px 0; font-size: 32px;">Welcome back, Alex! 👋</h2>
             
             <div class="dashboard-grid">
-                <!-- Streak Card -->
                 <div class="card dashboard-card">
                     <h3>🔥 Current Streak</h3>
                     <div class="progress-ring">
@@ -75,7 +61,6 @@
                     <p style="text-align: center; color: var(--text-light);">Days in a row! 🎉</p>
                 </div>
 
-                <!-- Habit Completion -->
                 <div class="card dashboard-card">
                     <h3>✅ Today's Habits</h3>
                     <div class="progress-ring">
@@ -90,7 +75,6 @@
                 </div>
             </div>
 
-            <!-- Mood Trends -->
             <div class="card">
                 <h3>📊 Weekly Mood Trends</h3>
                 <div class="mood-chart">
@@ -128,9 +112,6 @@
             </div>
         </div>
 
-        <!-- ============================================
-             PROFILE SCREEN
-        ============================================ -->
         <div id="profileScreen" class="screen container hidden">
             <div class="card">
                 <div class="profile-header">
@@ -176,9 +157,6 @@
             </div>
         </div>
 
-        <!-- ============================================
-             MOOD CHECK-IN SCREEN
-        ============================================ -->
         <div id="moodCheckScreen" class="screen container hidden">
             <div class="card">
                 <div class="mood-selector">
@@ -209,45 +187,23 @@
 
                 <div class="habit-checklist">
                     <h3>Today's Wellness Goals 🎯</h3>
-                    <div class="habit-item" onclick="toggleHabit(this)">
-                        <div class="habit-checkbox">
-                            <i class="fas fa-check"></i>
-                        </div>
-                        <span class="habit-icon">💧</span>
-                        <span class="habit-label">Drink 8 glasses of water</span>
+                    
+                    <div class="add-habit-form">
+                        <input type="text" id="newHabitInput" placeholder="Add a new habit (e.g., Go for a walk)">
+                        <button class="btn-add-habit" onclick="addHabit()">
+                            <i class="fas fa-plus"></i> Add
+                        </button>
                     </div>
-                    <div class="habit-item" onclick="toggleHabit(this)">
-                        <div class="habit-checkbox">
-                            <i class="fas fa-check"></i>
+                
+                    <div id="habitListContainer">
                         </div>
-                        <span class="habit-icon">📚</span>
-                        <span class="habit-label">Read for 30 minutes</span>
-                    </div>
-                    <div class="habit-item" onclick="toggleHabit(this)">
-                        <div class="habit-checkbox">
-                            <i class="fas fa-check"></i>
-                        </div>
-                        <span class="habit-icon">🧘</span>
-                        <span class="habit-label">Meditate for 10 minutes</span>
-                    </div>
-                    <div class="habit-item" onclick="toggleHabit(this)">
-                        <div class="habit-checkbox">
-                            <i class="fas fa-check"></i>
-                        </div>
-                        <span class="habit-icon">🏃</span>
-                        <span class="habit-label">Exercise for 20 minutes</span>
-                    </div>
                 </div>
-
                 <button class="btn btn-primary" style="margin-top: 20px; width: 100%;" onclick="saveMoodAndHabits()">
                     Save Today's Check-in ✨
                 </button>
             </div>
         </div>
 
-        <!-- ============================================
-             MUSIC SUGGESTION SCREEN
-        ============================================ -->
         <div id="musicScreen" class="screen container hidden">
             <div class="card music-card">
                 <h2 style="margin-bottom: 24px; text-align: center;">🎵 Music for Your Mood</h2>
@@ -261,9 +217,6 @@
                     <button class="platform-btn spotify-btn" onclick="openSpotify()">
                         <i class="fab fa-spotify"></i> Play on Spotify
                     </button>
-                    <button class="platform-btn youtube-btn" onclick="openYouTube()">
-                        <i class="fab fa-youtube"></i> Play on YouTube
-                    </button>
                 </div>
                 <button class="btn btn-secondary" style="margin-top: 20px; width: 100%;" onclick="refreshMusic()">
                     🔄 Get Another Suggestion
@@ -271,9 +224,6 @@
             </div>
         </div>
 
-        <!-- ============================================
-             1-TO-1 CONNECT SCREEN
-        ============================================ -->
         <div id="connectScreen" class="screen container hidden">
             <div class="card connect-section">
                 <h2 style="margin-bottom: 24px;">💫 Your Wellness Buddy</h2>
@@ -313,9 +263,6 @@
         </div>
     </div>
 
-    <!-- ============================================
-         PROFILE EDIT MODAL
-    ============================================ -->
     <div id="editProfileModal" class="modal hidden">
         <div class="modal-content">
             <div class="modal-header">
@@ -347,9 +294,6 @@
         </div>
     </div>
 
-    <!-- ============================================
-         AI CHATBOT
-    ============================================ -->
     <button class="chatbot-toggle hidden" id="chatbotToggle" onclick="toggleChatbot()">
         <i class="fas fa-comment-dots"></i>
     </button>
@@ -375,7 +319,6 @@
         </div>
     </div>
 
-    <!-- External JavaScript -->
     <script src="script.js"></script>
 
 </body>
