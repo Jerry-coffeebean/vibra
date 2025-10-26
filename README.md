@@ -1,7 +1,7 @@
 🌈 Vibra – Personal Wellness & Mood Companion
 Vibra is an all-in-one personal wellness tracker built with plain HTML, CSS, and JavaScript. It helps you track your moods, build healthy habits, and stay motivated on your wellness journey, all while adapting its color scheme to match your vibe.
 
-  Deployed Link -  https://vibramindtracker.netlify.app/
+  Deployed Link - https://vibramindtracker.netlify.app/
 
 ✨ Core Features
 Dynamic Mood Tracking: Select your daily mood (Happy, Sad, Calm, etc.) and watch the entire app's color theme dynamically change to match.
