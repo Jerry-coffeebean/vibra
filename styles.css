@@ -540,6 +540,75 @@ nav {
     font-weight: 500;
 }
 
+/* ... existing styles ... */
+.habit-label {
+    flex: 1;
+    font-weight: 500;
+}
+
+/* --- START: ADD NEW STYLES HERE --- */
+.add-habit-form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.add-habit-form input {
+    flex: 1;
+    padding: 12px;
+    border: 2px solid #E0E0E0;
+    border-radius: 12px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    outline: none;
+    transition: var(--transition);
+}
+
+.add-habit-form input:focus {
+    border-color: var(--primary-color);
+}
+
+.btn-add-habit {
+    padding: 0 20px;
+    background: var(--primary-color);
+    color: var(--white);
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: var(--transition);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.btn-add-habit:hover {
+    opacity: 0.8;
+}
+
+.delete-habit-btn {
+    background: none;
+    border: none;
+    color: var(--text-light);
+    font-size: 18px;
+    cursor: pointer;
+    padding: 5px;
+    margin-left: 10px;
+    transition: var(--transition);
+}
+
+.delete-habit-btn:hover {
+    color: #E74C3C; /* Red */
+    transform: scale(1.1);
+}
+/* --- END: NEW STYLES --- */
+
+.habit-checklist {
+/* ... existing styles ... */
+}
+
 /* ============================================
    MUSIC SUGGESTION SCREEN
 ============================================ */
@@ -590,11 +659,6 @@ nav {
 
 .spotify-btn {
     background: #1DB954;
-    color: var(--white);
-}
-
-.youtube-btn {
-    background: #FF0000;
     color: var(--white);
 }
 
