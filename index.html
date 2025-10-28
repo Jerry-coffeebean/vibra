@@ -118,8 +118,15 @@
                     <div class="profile-photo-wrapper">
                         <img src="https://ui-avatars.com/api/?name=Alex+Johnson&size=150&background=A3D9B1&color=fff&bold=true" 
                              alt="Profile Photo" class="profile-photo" id="profilePhoto">
-                        <button class="edit-photo-btn" onclick="changeProfilePhoto()">
+                        
+                        <input type="file" id="photoUploadInput" accept="image/*" class="hidden" onchange="handlePhotoUpload(event)">
+                        
+                        <button class="edit-photo-btn" onclick="triggerPhotoUpload()">
                             <i class="fas fa-camera"></i>
+                        </button>
+
+                        <button class="remove-photo-btn" onclick="removeProfilePhoto()">
+                            <i class="fas fa-trash-alt"></i>
                         </button>
                     </div>
                     <div class="profile-info">
@@ -223,45 +230,58 @@
                 </button>
             </div>
         </div>
-
+        
         <div id="connectScreen" class="screen container hidden">
-            <div class="card connect-section">
-                <h2 style="margin-bottom: 24px;">💫 Your Wellness Buddy</h2>
-                
-                <div class="friend-card">
-                    <img src="https://ui-avatars.com/api/?name=Sarah+Miller&size=80&background=F5D76E&color=fff&bold=true" 
-                         alt="Friend" class="friend-avatar">
-                    <div class="friend-info">
-                        <h4>Sarah Miller</h4>
-                        <p>Wellness journey together for 45 days 🌟</p>
-                        <span class="streak-badge">
-                            🔥 45 day streak
-                        </span>
-                    </div>
-                </div>
+            <h1 class="connect-title">💬 Vibra Connect</h1>
 
-                <div class="share-motivation">
-                    <h3 style="margin-bottom: 16px;">Send a Motivational Message 💌</h3>
-                    <textarea placeholder="Write something uplifting for your friend..."></textarea>
-                    <button class="btn btn-primary" style="margin-top: 16px; width: 100%;" onclick="sendMotivation()">
-                        Send Message ✨
+            <div id="connectInitialView" class="text-center space-y-4 card">
+                <p class="text-lg opacity-90">
+                    Connect with a random person and share mindful, positive chats 💫
+                </p>
+                <button
+                    onclick="connectNewPerson()"
+                    class="btn btn-primary connect-now-btn"
+                >
+                    Connect Now
+                </button>
+            </div>
+
+            <div id="connectChatView" class="hidden w-full max-w-md card connect-chat-card">
+                <div class="connect-chat-header">
+                    <h2 class="connect-chat-partner">
+                        Chatting with <span id="partnerName">...</span>
+                    </h2>
+                    <button
+                        onclick="disconnectAndFindNew()"
+                        class="btn-new-person"
+                    >
+                        🔄 New Person
                     </button>
                 </div>
 
-                <div style="margin-top: 30px;">
-                    <h3 style="margin-bottom: 16px;">Recent Activity 📈</h3>
-                    <div class="card" style="padding: 16px; margin-bottom: 12px;">
-                        <p><strong>Sarah</strong> completed 4/4 habits today! 🎉</p>
-                        <p style="font-size: 12px; color: var(--text-light); margin-top: 4px;">2 hours ago</p>
+                <div class="connect-messages-container" id="connectMessages">
                     </div>
-                    <div class="card" style="padding: 16px;">
-                        <p><strong>Sarah</strong> is feeling energetic ⚡</p>
-                        <p style="font-size: 12px; color: var(--text-light); margin-top: 4px;">5 hours ago</p>
-                    </div>
-                </div>
+
+                <form
+                    onsubmit="handleConnectSend(event)"
+                    class="connect-input-area"
+                >
+                    <input
+                        type="text"
+                        id="connectInput"
+                        placeholder="Type a message..."
+                        class="connect-input-field"
+                    />
+                    <button
+                        type="submit"
+                        class="connect-send-btn"
+                    >
+                        ➤
+                    </button>
+                </form>
             </div>
         </div>
-    </div>
+        </div>
 
     <div id="editProfileModal" class="modal hidden">
         <div class="modal-content">
